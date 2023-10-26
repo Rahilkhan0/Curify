@@ -1,6 +1,8 @@
 import streamlit as st
 import pickle
 from streamlit_option_menu import option_menu
+from flask import flask
+import opencv
 
 # Load the diabetes prediction model
 diabetes_model = pickle.load(open('C:/Users/Arbaz Khan/Downloads/Multiple-Disease-Prediction-System-main/Multiple-Disease-Prediction-System-main/Saved models/diabetes_model.sav', 'rb'))
@@ -9,6 +11,7 @@ diabetes_model = pickle.load(open('C:/Users/Arbaz Khan/Downloads/Multiple-Diseas
 def contact_us():
     st.title("Contact Us Page")
     st.write("Please fill out the form below to contact us.")
+    st.read()
 
     # Create or load session state to store form data
     if "contact_form" not in st.session_state:
@@ -24,6 +27,7 @@ def contact_us():
     email = st.text_input("Email", st.session_state.contact_form["email"])
     subject = st.text_input("Subject", st.session_state.contact_form["subject"])
     message = st.text_area("Message", st.session_state.contact_form["message"], height=200)
+    rollno = st.text_area("Message", st.session_state.contact_form["message"], height=200)
 
     # Store the form data in session_state
     st.session_state.contact_form["name"] = name
